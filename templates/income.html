@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="w-50 container">
+        <form action="add" method="post">
+            {% csrf_token %}
+            <div class="w-50 container">
+            <h3>Income</h3>
+            <div class="input-group mb-3">
+              <span class="input-group-text bg-success text-light">$</span>
+              <input type="text" name="Amount" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <button class="btn bg-success text-light btn-outline-secondary" type="submit" id="button-addon2">Confirm</button>
+
+        </div>
+            </div>
+        </form>
+        <table class="border table">
+          <thead>
+            <tr>
+              <th scope="col">Amount</th>
+              <th scope="col">Category</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for i in transaction.reverse %}
+              {% if i.Type == "Income" %}
+                <tr class="table-success">
+                  <td>{{ i.Amount }}</td>
+                  <td>{{ i.Category }}</td>
+                  <td>{{ i.Date }}</td>
+                </tr>
+              {% endif %}
+          {% endfor %}
+          </tbody>
+        </table>
+    </div>
+{% endblock %}

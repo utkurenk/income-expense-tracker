@@ -1,0 +1,4 @@
+Django==4.0.5
+djangorestframework==3.13.1
+crispy_bootstrap5==0.6
+django_filter==22.1

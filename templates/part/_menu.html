@@ -1,0 +1,22 @@
+<body>
+    <nav class="navbar navbar-expand-xl bg-success navbar-dark">
+        <div class="container-xl">
+        <a class="navbar-brand">UTKU</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav">
+                  <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                  <a class="nav-link text-light" href="{% url 'income' %}">Income</a>
+                  <a class="nav-link text-light" href="{% url 'expense' %}">Expense</a>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="ms-auto navbar-nav">
+                    <span class="navbar-text">Username: {{user.username}}</span>
+                    <a class="nav-link text-light me-auto" href="/logout">Signout</a>
+                   </div>
+                {% endif %}
+        </div>
+        </div>
+    </nav>
